@@ -1,23 +1,14 @@
 import "./App.css"
-import ComponenteClase from "./components/ComponenteClase"
-import ComponenteFuncional, {
-    ComponenteSecundario,
-    miVariable,
-} from "./components/ComponenteFuncional"
-
-const miElemento = <p>Mi nombre es Gorka</p>
-
-const MiComponente = () => {
-    return <h2>Este es mi componente</h2>
-}
+import SaludoClase from "./components/SaludoClase"
+import SaludoFuncional from "./components/SaludoFuncional"
 
 function App() {
     return (
         <div>
-            {miElemento}
-            <MiComponente />
-            <ComponenteFuncional />
-            <ComponenteSecundario />
+            {/* <Saludo nombre="Diego" /> */}
+            <img src="" alt="" />
+            <SaludoClase nombre="Raúl" edad={28} />
+            <SaludoFuncional nombre="Toni" edad={32} />
         </div>
     )
 }

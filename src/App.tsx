@@ -1,30 +1,37 @@
-import { useEffect } from "react"
+import { useState } from "react"
+import { Route } from "./models"
 import "./App.css"
-import ImagePlaceholder from "./components/ImagePlaceholder"
+import { Home, Contact, Support } from "./views"
+
+const views = {
+    home: <Home />,
+    contact: <Contact />,
+    support: <Support />
+}
+const componentViews = {
+    home: Home,
+    contact: Contact,
+    support: Support
+}
 
 function App() {
-    // useEffect(() => {
-    //     window.addEventListener("dblclick", () => {
-    //         console.log("Se ha hecho doble click")
-    //     })
-    //     return () => {
-    //         window.removeEventListener("dblclick", () => null)
-    //     }
-    // }, [])
+    const [route, setRoute] = useState<Route>("home")
+    if (route === "contact") return <Contact />
+    if (route === "support") return <Support />
+    if (route === "home") return <Home />
     return (
-        <div className="img-container">
-            <ImagePlaceholder
-                src="https://woguclimbing.com/wp-content/uploads/2017/11/Dan-Osman.jpg"
-                alt="dan"
-            />
-            <ImagePlaceholder
-                src="https://encrypdted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwuHUnSYntFRn8-dNVXrJZQZnegp2l9WwbcECUY6fdBoGlWcIa0-dFGNN7CggAFPhOR58&usqp=CAU"
-                alt="rpi"
-            />
-            <ImagePlaceholder
-                src="https://assets-prd.ignimgs.com/2021/08/05/final-fantasy-xvi-button-1628180674117.jpg"
-                alt="ffxvi"
-            />
+        <div>
+            <h3>Esto es la pantalla principal</h3>
+            {/* {route === "home" && <Home />}
+            {route === "contact" && <Contact />}
+            {route === "support" && <Support />} */}
+            {views[route]}
+            {route === "home" && <componentViews.home />}
+            <div>
+                <button onClick={() => setRoute("home")}>Home</button>
+                <button onClick={() => setRoute("contact")}>Contact</button>
+                <button onClick={() => setRoute("support")}>Support</button>
+            </div>
         </div>
     )
 }

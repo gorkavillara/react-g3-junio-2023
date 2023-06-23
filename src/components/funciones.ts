@@ -28,3 +28,18 @@ function miFuncion2(miVariable: unknown) {
     }
 }
 
+
+
+type Alumno = {
+    nombre: string
+    nota: number
+    pelo: string
+}
+
+const alumno: Alumno = {
+    nombre: "Raúl",
+    nota: 5.0,
+    pelo: "sobrau"
+}
+
+const { nota } = alumno

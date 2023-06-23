@@ -1,14 +1,11 @@
 import "./App.css"
-import SaludoClase from "./components/SaludoClase"
-import SaludoFuncional from "./components/SaludoFuncional"
+import ContadorFuncional from "./components/ContadorFuncional"
+import ContadorClase from "./components/ContadorClase"
 
 function App() {
     return (
         <div>
-            {/* <Saludo nombre="Diego" /> */}
-            <img src="" alt="" />
-            <SaludoClase nombre="Raúl" edad={28} />
-            <SaludoFuncional nombre="Toni" edad={32} />
+            <ContadorFuncional />
         </div>
     )
 }

@@ -43,3 +43,6 @@ const alumno: Alumno = {
 }
 
 const { nota } = alumno
+
+
+let miVariable = "hola"

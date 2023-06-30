@@ -12,3 +12,10 @@ export interface Alumno {
     email: string
     nota: number
 }
+
+export interface PersonajeRM {
+    id: number
+    name: string
+    species: string
+    image: string
+}

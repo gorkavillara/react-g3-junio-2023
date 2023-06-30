@@ -1,6 +1,6 @@
 import { RouteObject, Navigate } from "react-router-dom"
 import App from "../App"
-import { Alumnos, Contact, DetalleAlumno, FormularioFormik } from "../views"
+import { Alumnos, Contact, DetalleAlumno, FormularioFormik, RickMorty } from "../views"
 import MainLayout from "../layouts/MainLayout"
 
 const checkIsAdmin = (): boolean => Math.random() > 0.5
@@ -40,6 +40,10 @@ const routes: RouteObject[] = [
                         element: <h1>Hola mundo!</h1>,
                     },
                 ],
+            },
+            {
+                path: "rickmorty",
+                element: <RickMorty />
             },
             {
                 path: "protegida",

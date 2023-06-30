@@ -6,6 +6,7 @@ import Alumnos from "./Alumnos/Alumnos"
 import FormularioClasico from "./Formularios/FormularioClasico"
 import FormularioFormik from "./Formularios/FormularioFormik"
 import DetalleAlumno from "./Alumnos/DetalleAlumno"
+import RickMorty from "./RickMorty/RickMorty"
 
 export {
     Home,
@@ -15,5 +16,6 @@ export {
     Alumnos,
     FormularioClasico,
     FormularioFormik,
-    DetalleAlumno
+    DetalleAlumno,
+    RickMorty
 }

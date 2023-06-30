@@ -5,6 +5,7 @@ import Support from "./Support"
 import Alumnos from "./Alumnos/Alumnos"
 import FormularioClasico from "./Formularios/FormularioClasico"
 import FormularioFormik from "./Formularios/FormularioFormik"
+import DetalleAlumno from "./Alumnos/DetalleAlumno"
 
 export {
     Home,
@@ -14,4 +15,5 @@ export {
     Alumnos,
     FormularioClasico,
     FormularioFormik,
+    DetalleAlumno
 }

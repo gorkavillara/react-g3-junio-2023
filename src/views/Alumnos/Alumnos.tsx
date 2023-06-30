@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { alumnos } from "../../assets"
 
 const Alumnos = () => {
@@ -9,14 +10,18 @@ const Alumnos = () => {
                 {alumnos
                     .sort((a, b) => (a.nota > b.nota ? -1 : 1))
                     // .toSorted((a, b) => (a.nota > b.nota ? -1 : 1))
-                    .filter(alumno => alumno.nota > 5)
+                    // .filter(alumno => alumno.nota > 5)
                     .map((alumno, index, todosAlumnos) => {
                         // aquí podríamos hacer todos los cálculos que quisiéramos
                         console.log({ alumnos })
                         console.log({ todosAlumnos })
                         return (
                             <li key={alumno.id}>
-                                {alumno.nombre} - {alumno.email} - {alumno.nota}
+                                {alumno.nombre} - {alumno.email} - {alumno.nota}{" "}
+                                -{" "}
+                                <Link to={`/alumnos/${alumno.id}`} style={{ color: "#02E8AF" }}>
+                                    Detalles
+                                </Link>
                             </li>
                         )
                     })}

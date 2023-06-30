@@ -1,6 +1,11 @@
+import { Outlet } from "react-router-dom"
+
 const Contact = () => {
   return (
-    <div>Contact</div>
+    <div>
+      <h2>Contacto</h2>
+      <Outlet />
+    </div>
   )
 }
 

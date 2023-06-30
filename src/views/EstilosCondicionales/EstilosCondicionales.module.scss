@@ -1,0 +1,17 @@
+.EstilosCondicionales {
+    font-size: 2rem;
+    padding-bottom: 3rem;
+
+    .btn {
+        font-size: 1.5rem;
+        transition: all 0.4s;
+        &.on {
+            background-color: rgb(111, 233, 111);
+            box-shadow: 0 0 3rem rgba(111, 233, 111, 0.35);
+        }
+        &.off {
+            background-color: rgb(233, 111, 111);
+            box-shadow: 0 0 3rem rgba(233, 111, 111, 0.35);
+        }
+    }
+}

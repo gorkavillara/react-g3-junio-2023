@@ -1,7 +1,10 @@
 import { useState } from "react"
-import axios, { AxiosError } from "axios"
+import { AxiosError } from "axios"
+import { useQuery } from "@tanstack/react-query"
 import styles from "./RickMorty.module.scss"
 import { PersonajeRM } from "../../models"
+import { rmInstance } from "../../assets/instances"
+import NarutoLoader from "../../components/Loaders/NarutoLoader"
 
 const Personaje = ({ personaje }: { personaje: PersonajeRM | null }) =>
     personaje ? (
@@ -16,33 +19,16 @@ const Personaje = ({ personaje }: { personaje: PersonajeRM | null }) =>
 
 const RickMorty = () => {
     const [id, setId] = useState("")
-    const [personaje, setPersonaje] = useState<PersonajeRM | null>(null)
 
-    // const buscaPersonaje = (e?: React.FormEvent) => {
-    //     e?.preventDefault()
-    //     console.log("Buscando el personaje...")
-    //     fetch(`https://rickandmortyapi.com/api/character/${id}`)
-    //         .then((res) => res.json())
-    //         .then((info) => setPersonaje(info))
-    //         .catch((error) => console.error(error))
-    //         .finally(() => console.log("Ejecución finalizada"))
-    // }
-    const buscaPersonaje = async () => {
-        // axios.get(`https://rickandmortyapi.com/api/character/${id}`)
-        //     .then((info) => setPersonaje(info.data))
-        //     .catch((error) => console.error(error))
-        //     .finally(() => console.log("Ejecución finalizada"))
-        try {
-            const { data } = await axios.get(
-                `https://rickandmortyapi.com/api/character/${id}`
-            )
-            console.log("Satisfactorio", data)
-            setPersonaje(data)
-        } catch (e) {
-            const error = e as AxiosError
-            console.error(error.message)
-        }
-    }
+    const { data, isFetching, isError, error } = useQuery({
+        queryKey: [`rm-${id}`],
+        queryFn: () => rmInstance(id),
+        enabled: id !== ""
+    })
+
+    console.log(data?.data)
+
+    const personaje = data?.data
 
     return (
         <div className={styles.RickMorty}>
@@ -55,12 +41,16 @@ const RickMorty = () => {
                     value={id}
                     id="character-id"
                     placeholder="El id que deseas buscar"
-                    onKeyDown={(e) => e.key === "Enter" && buscaPersonaje()}
+                    // onKeyDown={(e) => e.key === "Enter" && buscaPersonaje()}
                     onChange={(e) => setId(e.target.value)}
                 />
             </label>
-            <button onClick={buscaPersonaje}>Buscar</button>
+            {/* <button onClick={buscaPersonaje}>Buscar</button> */}
             {/* </form> */}
+            {/* {isError && <h1>Error!</h1>} 
+            {isLoading && <p>Cargando...</p>} */}
+            {isFetching && <NarutoLoader />}
+            {error && <h2>ERROR! {error.toString()}</h2>}
             <Personaje personaje={personaje} />
         </div>
     )

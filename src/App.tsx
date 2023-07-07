@@ -1,13 +1,18 @@
-import { useSearchParams } from "react-router-dom"
+import { useState } from "react"
 import "./App.scss"
+import Padre from "./components/Padre"
+import Contador from "./views/Contador/Contador"
 
 function App() {
-    const [searchParams] = useSearchParams()
-
-    console.log(searchParams.get("nombre"))
+    // const [ajustes, setAjustes] = useState({
+    //     modoOscuro: false,
+    // })
     return (
         <div>
-            App
+            <h1>App</h1>
+            {/* <Padre ajustes={ajustes} /> */}
+            <Contador />
+            <Contador />
         </div>
     )
 }

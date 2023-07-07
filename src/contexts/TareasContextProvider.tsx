@@ -1,4 +1,10 @@
-import { useState, createContext, PropsWithChildren } from "react"
+import {
+    useReducer,
+    createContext,
+    PropsWithChildren,
+    ReducerAction,
+} from "react"
+import tareasReducer, { tareasIniciales } from "../features/tareasReducer"
 
 interface Tarea {
     id: number
@@ -15,22 +21,24 @@ interface ProviderValues {
 export const TareasContext = createContext<ProviderValues>(null!)
 
 function TareasContextProvider({ children }: PropsWithChildren) {
-    const [tareas, setTareas] = useState<Tarea[]>([
-        { id: 0, texto: "Bajar la basura", completado: false },
-        { id: 1, texto: "Comprar la comida", completado: false },
-        { id: 2, texto: "Llamar a mi hermana", completado: false },
-        { id: 3, texto: "Sacar al perro", completado: false },
-        { id: 4, texto: "Aprender React", completado: false },
-    ])
+    const [tareas, dispatchTareas] = useReducer(tareasReducer, tareasIniciales)
 
-    const completaTarea = (id: number) =>
-        setTareas((prevTareas) =>
-            prevTareas.map((tarea) =>
-                tarea.id === id ? { ...tarea, completado: true } : tarea
-            )
-        )
+    const completaTarea = (id: number) => {
+        dispatchTareas({ type: "completaTarea", payload: id })
+    }
 
-    return <TareasContext.Provider value={{ tareas, completaTarea }} children={children} />
+    const nuevaTarea = async (tarea: Tarea[]) => {
+        // Llamada a una api -> nueva tarea
+        // const respuesta = await axios.post(......)
+        dispatchTareas({ type: "nuevaTarea", payload: tarea })
+    }
+
+    return (
+        <TareasContext.Provider
+            value={{ tareas, completaTarea }}
+            children={children}
+        />
+    )
 }
 
 export default TareasContextProvider

@@ -1,18 +1,14 @@
-import { useState } from "react"
 import "./App.scss"
-import Padre from "./components/Padre"
-import Contador from "./views/Contador/Contador"
+import Tareas from "./views/Tareas/Tareas"
+import TareasContextProvider from "./contexts/TareasContextProvider"
 
 function App() {
-    // const [ajustes, setAjustes] = useState({
-    //     modoOscuro: false,
-    // })
     return (
         <div>
-            <h1>App</h1>
-            {/* <Padre ajustes={ajustes} /> */}
-            <Contador />
-            <Contador />
+            <h3>Lista de tareas</h3>
+            <TareasContextProvider>
+                <Tareas />
+            </TareasContextProvider>
         </div>
     )
 }

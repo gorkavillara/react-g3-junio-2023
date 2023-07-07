@@ -1,18 +1,11 @@
-import { useSelector, useDispatch } from "react-redux"
-import { RootState } from "../app/store"
-import { incrementa, incrementaX } from "../features/contador/contadorSlice"
+import { useState } from "react"
 
-const useContador = () => {
-    const contador = useSelector((state: RootState) => state.contador)
-    const dispatch = useDispatch()
+const useContador = (initialValue = 0) => {
+    const [contador, setContador] = useState(initialValue)
 
-    const incrementaContador = () => {
-        dispatch(incrementa())
-    }
+    const incrementaContador = () => setContador(prev => prev + 1)
 
-    const incrementaCinco = () => {
-        dispatch(incrementaX(5))
-    }
+    const incrementaCinco = () => setContador(prev => prev + 5)
 
     return { contador, incrementaContador, incrementaCinco }
 }

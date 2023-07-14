@@ -1,9 +1,9 @@
-import Mui from "./views/Mui/Mui"
+import Dashboard from "./views/Mui/Dashboard"
 
 function App() {
     return (
         <div>
-            <Mui />
+            <Dashboard />
         </div>
     )
 }

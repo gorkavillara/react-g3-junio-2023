@@ -1,11 +1,7 @@
-import Dashboard from './layouts/Dashboard/Dashboard'
+import Dashboard from "./layouts/Dashboard/Dashboard"
 
 function App() {
-  return (
-    <>
-      <Dashboard />
-    </>
-  )
+    return <Dashboard />
 }
 
 export default App

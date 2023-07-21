@@ -1,8 +1,8 @@
 import "./App.css"
-import ComponenteClase from "./components/ComponenteClase"
+// import ComponenteClase from "./components/ComponenteClase"
 import ComponenteFuncional, {
     ComponenteSecundario,
-    miVariable,
+    // miVariable,
 } from "./components/ComponenteFuncional"
 
 const miElemento = <p>Mi nombre es Gorka</p>

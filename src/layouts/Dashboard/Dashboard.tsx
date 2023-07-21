@@ -6,12 +6,12 @@ const Dashboard = () => {
     // console.log(mainRoute.children)
 
     const [{ children: subRoutes }] = routes
-    console.log(subRoutes)
+    // console.log(subRoutes)
 
     return (
         <>
             <div className="topbar">
-                <h1>Dashboard</h1>
+                <h1>Proyecto final React</h1>
             </div>
             <div className="container">
                 <div className="sidebar">

@@ -15,7 +15,7 @@ describe("Testing mocked values", () => {
         axios.get = vi.fn().mockResolvedValue({
             data: {
                 name: "Gorka Villar"
-            }
+            } 
         })
     })
     afterAll(() => {

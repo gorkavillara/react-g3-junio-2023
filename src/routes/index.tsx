@@ -1,6 +1,6 @@
 import { RouteObject } from "react-router-dom"
 import { Dashboard } from "../layouts"
-import { Clientes } from "../views"
+import { Clientes, Juego } from "../views"
 
 const routes: RouteObject[] = [
     {
@@ -20,7 +20,7 @@ const routes: RouteObject[] = [
             {
                 path: "play",
                 id: "Let's play!",
-                element: <h1>Let's play</h1>
+                element: <Juego />
             }
         ]
     },
